@@ -1,18 +1,19 @@
 /*
  * File: 4-puts.c
- * Author: Zuki Nkalitshana
+ * Description: using alt to printf function
+ * Auth: Zuki Nkalitshana
  */
 
 #include <stdio.h>
 
 /**
- * main function prints "Programming is like building a multilingual puzzle"
- * And adds new line after.
+ * main - prints "Programming is like building a multilingual puzzle"
+ *	And adds new line after.
  *
  * Return: 0
  */
 int main(void)
 {
-	puts("Programming is like building a multilingual puzzle");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
