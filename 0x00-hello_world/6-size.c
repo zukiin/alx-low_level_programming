@@ -4,12 +4,11 @@
  */
 
 #include <stdio.h>
-#include <conio.h>
 
 /**
  * main - prints the size of various types
  *
- * ReturnL 0
+ * Return: 0
  */
 int main(void)
 {
