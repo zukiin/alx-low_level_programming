@@ -12,24 +12,28 @@
  */
 int main(void)
 {
-	int n = 0;
+	int i, j, k;
 
-	while (n < 1000)
+	for (i = 0; i < 8; i++)
 	{
-		int u = n % 10;
-		int t = (n / 10) % 10;
-		int h = (n / 100) % 10;
-
-		if (u != t && u != h && t != h)
+		for (j = i + 1; j < 9; j++)
 		{
-			putchar(u + '0');
-			putchar(t + '0');
-			putchar(h + '0');
-			putchar(',');
-			putchar(' ');
+			for (k = j + 1; k <= 9; k++)
+			{
+				putchar(i + '0');
+				putchar(j + '0');
+				putchar(k + '0');
+				if (i == 7 && j == 8 && k == 9)
+				{
+					putchar('\n');
+				}
+				else
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
 		}
-		n++;
 	}
-	putchar('\n');
 	return (0);
 }
