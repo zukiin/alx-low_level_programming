@@ -7,7 +7,8 @@
  */
 int main(void)
 {
-	unsigned long a = 0, b = 1, sum, total;
+	unsigned long a = 0, b = 1, sum;
+	float total;
 
 	while (1)
 	{
@@ -20,6 +21,6 @@ int main(void)
 		a = b;
 		b = sum;
 	}
-	printf("%lu\n", total);
+	printf("%.0f\n", total);
 	return (0);
 }
