@@ -11,7 +11,7 @@
  *
  * Return: 0
  */
-void print_alphabets(void)
+void print_alphabet(void)
 {
 	char ch;
 
