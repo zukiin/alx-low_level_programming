@@ -9,12 +9,27 @@
 int main(void)
 {
 	int r;
-	r = print_sign('x');
-	putchar(r + '0');
-	r = print_sign('9');
-	putchar(r + '0');
-	r = print_sign(108);
-	putchar(r + '0');
+	r = print_sign(98);
+    putchar(',');
+    putchar(' ');
+    putchar(r + '0');
+    putchar('\n');
+    r = print_sign(0);
+    putchar(',');
+    putchar(' ');
+    putchar(r + '0');
+    putchar('\n');
+    r = print_sign(0xff);
+    putchar(',');
+    putchar(' ');
+    putchar(r + '0');
+    putchar('\n');
+    r = print_sign(-1);
+    putchar(',');
+    putchar(' ');
+    putchar(r + '0');
+    putchar('\n');
+    return (0);
 	putchar('\n');
 	return (0);
 }
