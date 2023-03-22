@@ -11,7 +11,7 @@
  *
  * Return: 0
  */
-int print_alphabets(void)
+void print_alphabets(void)
 {
 	char ch;
 
@@ -20,5 +20,4 @@ int print_alphabets(void)
 		putchar(ch);
 	}
 	putchar('\n');
-	return (0);
 }
