@@ -7,16 +7,25 @@
  */
 int main(void)
 {
-	int a = 1;
-	int b = 2;
-	int sum, i;
+	unsigned long a = 1, b = 2, sum;
+	int i;
 
-	for (i = 0; i < 50 ; i++)
+	for (i = 1; i < 50 ; i++)
 	{
 		sum = a + b;
-		printf("%d %d %d\n", a, b, sum);
+		printf("%lu", sum);
 		a = b;
 		b = sum;
+
+		if (i == 49)
+		{
+			putchar('\n');
+		}
+		else
+		{
+			putchar(',');
+		}
 	}
+	putchar('\n');
 	return (0);
 }
