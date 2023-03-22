@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-	unsigned long a = 1, b = 2, sum;
+	unsigned long a = 0, b = 1, sum;
 	int i;
 
-	for (i = 1; i < 50 ; i++)
+	for (i = 0; i < 50 ; i++)
 	{
 		sum = a + b;
 		printf("%lu", sum);
