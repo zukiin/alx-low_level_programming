@@ -20,26 +20,14 @@ void print_triangle(int size)
 		{
 			for (j = size - i; j > 1 ; j--)
 			{
-				putchar(32);
+				_putchar(32);
 			}
 			for (k = 0; k <= i; k++)
 			{
-				putchar(35);
+				_putchar(35);
 			}
-			putchar('\n');
+			_putchar('\n');
 		}
 	}
-	putchar('\n');
-}
-
-/**
- * main - test that print_triangle funct prints a triangle
- * Return: always 0
- */
-int main(void)
-{
-	int t = 10;
-
-	print_triangle(t);
-	return (0);
+	_putchar('\n');
 }
