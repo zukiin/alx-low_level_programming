@@ -17,7 +17,7 @@ int main(void)
 		a = b;
 		b = sum;
 
-		if (i == 98)
+		if (i == 97)
 		{
 			putchar('\n');
 		}
