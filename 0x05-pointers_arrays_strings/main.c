@@ -8,13 +8,9 @@
  */
 int main(void)
 {
-	int a;
-	int b;
+	char *str;
 
-    a = 98;
-    b = 42;
-    printf("a=%d, b=%d\n", a, b);
-    swap_int(&a, &b);
-    printf("a=%d, b=%d\n", a, b);
+    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
+    _puts(str);
     return (0);
 }
