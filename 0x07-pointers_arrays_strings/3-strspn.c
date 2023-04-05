@@ -13,17 +13,17 @@ unsigned int _strspn(char *s, char *accept)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == 32)
-		{
-			return (c);
-		}
-		else
+		if (s[i] != 32)
 		{
 			for (t = 0; accept[t] != '\0'; t++)
 			{
 				if (s[i] == accept[t])
 					c++;
 			}
+		}
+		else
+		{
+			return (c);
 		}
 	}
 	return (c);
