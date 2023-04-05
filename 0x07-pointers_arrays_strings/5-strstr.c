@@ -10,10 +10,10 @@
 */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, w = 0;
+	int i, ss = 0;
 
-	while (needle[w] != '\0')
-		w++;
+	while (needle[ss] != '\0')
+		ss++;
 
 	while (*haystack)
 	{
@@ -24,7 +24,7 @@ char *_strstr(char *haystack, char *needle)
 				break;
 			}
 		}
-		if (i != w)
+		if (i != ss)
 		{
 			haystack++;
 		}
