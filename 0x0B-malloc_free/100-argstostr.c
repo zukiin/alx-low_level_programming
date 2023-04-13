@@ -11,7 +11,7 @@ int getstrlength(char *str);
 char *argstostr(int ac, char **av)
 {
 	int i = ac, j = 0, k = 0, s = 0, tmp = 0;
-	char **newStr = NULL;
+	char *newStr = NULL;
 
 	if (ac <= 0 || av == NULL)
 	{
