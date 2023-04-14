@@ -34,11 +34,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	length = 0;
 
-	for (; s1[i]; i++)
+	for (i = 0; s1[i]; i++)
 	{
 		concatStr[length++] = s1[i];
 	}
-	for (; s2[i] && i < n; i++)
+	for (i = 0; s2[i] && i < n; i++)
 	{
 		concatStr[length++] = s2[i];
 	}
