@@ -6,10 +6,8 @@
  * @argv: array of args
  * Return: 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char __attribute__((__unused__)) *argv[])
 {
-	int i = 0;
-	printf("String: %s\n", argv[i]);
 	printf("%d\n", argc - 1);
 	return (0);
 }
