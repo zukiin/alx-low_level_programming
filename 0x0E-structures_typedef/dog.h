@@ -21,7 +21,7 @@ struct dog
  * dogT - specifies type definition for dog
  */
 
-typedef struct dog dogT;
+typedef struct dog my_dog;
 
 
 /* function prototypes */
