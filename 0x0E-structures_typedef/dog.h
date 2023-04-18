@@ -17,13 +17,6 @@ struct dog
 	char *owner;
 };
 
-/**
- * my_dog - specifies type definition for dog
- */
-
-typedef struct dog my_dog;
-
-
 /* function prototypes */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
