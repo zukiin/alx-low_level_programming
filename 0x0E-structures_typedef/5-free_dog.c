@@ -1,7 +1,7 @@
 #include "dog.h"
 
 /**
- * free_dog - frees dog
+ * free_dog - frees dogs
  * @d: dog to free
  */
 void free_dog(dog_t *d)
@@ -11,6 +11,6 @@ void free_dog(dog_t *d)
 		return;
 	}
 	free(d->name);
-	free(d->age);
+	free(d);
 	free(d->owner);
 }
