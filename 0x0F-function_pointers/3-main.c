@@ -6,7 +6,7 @@
  * @argv: arr of pointers to args
  * Return: result
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int x = atoi(argv[1]), y = atoi(argv[3]);
 	char *op = op = argv[2];
