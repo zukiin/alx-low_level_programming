@@ -8,17 +8,18 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	unsigned int i = 0;
-	int sum;
+	int sum = 0;
 	va_list ln;
 
 	va_start(ln, n);
 
 	if (n == 0)
+	{
 		return (0);
-
+	}
 	for (; i < n; i++)
-		sum += va_arg(ln, int);
+			sum += va_arg(ln, int);
 
-	va_end(li);
+	va_end(ln);
 	return (sum);
 }
