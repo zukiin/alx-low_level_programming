@@ -14,10 +14,10 @@ void print_all(const char * const format, ...)
 
 	va_start(li, format);
 
-	while (format[a])
+	if (format)
 	{
-		if (a != 0)
-			separator = ", ";
+		while (format[a])
+	{
 		switch (format[a])
 		{
 			case 'c':
@@ -43,7 +43,9 @@ void print_all(const char * const format, ...)
 				a++;
 				continue;
 		}
+		separator = ", ";
 	a++;
+	}
 	}
 	putchar('\n');
 	va_end(li);
