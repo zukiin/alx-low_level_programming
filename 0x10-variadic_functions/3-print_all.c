@@ -13,7 +13,6 @@ void print_all(const char * const format, ...)
 	float f;
 
 	va_start(li, format);
-
 	while (format[a])
 	{
 		switch (format[a])
@@ -33,9 +32,7 @@ void print_all(const char * const format, ...)
 			case 's':
 				s = va_arg(li, char *);
 				if (s == NULL)
-				{
 					printf("%s(nil)", separator);
-				}
 				printf("%s%s", separator, s);
 				break;
 			default:
