@@ -7,11 +7,11 @@
 void print_all(const char * const format, ...)
 {
 	int a = 0;
-	char *separator = 0;
+	char *separator = ", ";
 	va_list li;
-	char c = va_arg(li, char);
+	char c = va_arg(li, int);
 	int i = va_arg(li, int);
-	float f = va_arg(li, float);
+	float f = (float) va_arg(li, double);
 	char *s = va_arg(li, char *);
 
 	va_start(li, format);
@@ -36,11 +36,11 @@ void print_all(const char * const format, ...)
 			default:
 				break;
 		}
-	if (format[j + 1])
-		printf(", ");
+	if (format[a + 1])
+		printf("%s", separator);
 
 	a++;
 
 	putchar('\n');
-	va_end(ln);
+	va_end(li);
 }
