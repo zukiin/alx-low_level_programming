@@ -6,7 +6,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	int a = 0, i;
+	int a = 0, b = 0, i;
 	char *separator = "", *s;
 	va_list li;
 	char c;
@@ -16,9 +16,14 @@ void print_all(const char * const format, ...)
 
 	while (format && format[a])
 	{
-		if (a != 0)
+		a++;
+	}
+
+	while (b < a)
+	{
+		if (b != 0)
 			separator = ", ";
-		switch (format[a])
+		switch (format[b])
 		{
 			case 'c':
 				c = va_arg(li, int);
@@ -42,7 +47,7 @@ void print_all(const char * const format, ...)
 			default:
 				break;
 		}
-	a++;
+	b++;
 	}
 	putchar('\n');
 	va_end(li);
