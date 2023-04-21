@@ -7,7 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	int a = 0, i;
-	char *separator, *s;
+	char *separator = "", *s;
 	va_list li;
 	char c;
 	float f;
@@ -20,31 +20,27 @@ void print_all(const char * const format, ...)
 		{
 			case 'c':
 				c = va_arg(li, int);
-				printf("%c", c);
+				printf("%s%c", separator, c);
 				break;
 			case 'i':
 				i = va_arg(li, int);
-				printf("%d", i);
+				printf("%s%d", separator, i);
 				break;
 			case 'f':
 				f = va_arg(li, double);
-				printf("%f", f);
+				printf("%s%f", separator, f);
 				break;
 			case 's':
 				s = va_arg(li, char *);
 				if (s == NULL)
-					printf("(nil)");
+					printf("%s(nil)", separator);
 				else
-					printf("%s", s);
+					printf("%s%s", separator, s);
 				break;
 			default:
 				break;
 		}
-	if (format[a + 1])
-	{
-		separator = ", ";
-		printf("%s", separator);
-	}
+	separator = ", ";
 	a++;
 	}
 	putchar('\n');
