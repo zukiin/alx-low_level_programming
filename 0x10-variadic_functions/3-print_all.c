@@ -6,15 +6,19 @@
  */
 void print_all(const char * const format, ...)
 {
-	int a = 0;
-	char *separator = ", ";
+	int a = 0, i;
+	char *separator = ", ", *s;
 	va_list li;
-	char c = va_arg(li, int);
-	int i = va_arg(li, int);
-	float f = (float) va_arg(li, double);
-	char *s = va_arg(li, char *);
+	char c;
+	float f;
 
 	va_start(li, format);
+
+	c = va_arg(li, int);
+	i = va_arg(li, int);
+	f = (float) va_arg(li, double);
+	s = va_arg(li, char *);
+
 	while (format && format[a])
 		switch (format[a])
 		{
@@ -38,7 +42,6 @@ void print_all(const char * const format, ...)
 		}
 	if (format[a + 1])
 		printf("%s", separator);
-
 	a++;
 
 	putchar('\n');
