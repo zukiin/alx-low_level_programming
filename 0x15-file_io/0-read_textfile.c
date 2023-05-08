@@ -8,20 +8,19 @@
   */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int filedes;
-	ssize_t letters_read, letters_writ;
+	ssize_t letters_read, letters_writ, filedes;
 	char *buffer;
 
 	if (filename == NULL)
 		return (0);
 
-	filedes = open(filename, 0_RDONLY);
-	letters_read = read(fildes, buffer, letters);
-	letters_writ = write(STDOUT_FILENO, buffer, letters_read);
-
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 		return (0);
+
+	filedes = open(filename, O_RDONLY);
+	letters_read = read(filedes, buffer, letters);
+	letters_writ = write(STDOUT_FILENO, buffer, letters_read);
 
 	if (filedes == -1 || letters_read == -1 || letters_writ == -1)
 	{
@@ -30,7 +29,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	free(buffer);
-	fclose(filedes);
+	close(filedes);
 
 	return (letters_writ);
 }
