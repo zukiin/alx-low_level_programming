@@ -52,14 +52,21 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	do {
+	while (reader >0)
+	{
 		writer = write(to_fd, buffer, reader);
 		if (writer == -1 || reader != writer)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-	} while (reader > 0);
+	}
+
+	if (reader == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	
 	close_fd(from_fd);
 	close_fd(to_fd);
