@@ -15,7 +15,7 @@ void close_fd(int filedes)
 	cl = close(filedes);
 	if (cl == -1)
 	{
-		dprintf(STDERR_FILENO, "Err closing file descriptor  %d\n", fd);
+		dprintf(STDERR_FILENO, "Err closing file descriptor  %d\n", filedes);
 		exit (100);
 	}
 }
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	} while (reader > 0);
-	free(buffer);
+	
 	close_fd(from_fd);
 	close_fd(to_fd);
 	return (0);
