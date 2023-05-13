@@ -16,7 +16,7 @@ void close_fd(int filedes)
 	if (cl == -1)
 	{
 		dprintf(STDERR_FILENO, "Err closing file descriptor  %d\n", filedes);
-		exit (100);
+		exit(100);
 	}
 }
 
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while (reader >0)
+	while (reader > 0)
 	{
 		writer = write(to_fd, buffer, reader);
 		if (writer == -1 || reader != writer)
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	
+
 	close_fd(from_fd);
 	close_fd(to_fd);
 	return (0);
