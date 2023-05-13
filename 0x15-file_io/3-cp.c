@@ -16,7 +16,7 @@ void close_fd(int filedes)
 	if (cl == -1)
 	{
 		dprintf(STDERR_FILENO, "Err closing file descriptor  %d\n", fd);
-		return (100);
+		exit (100);
 	}
 }
 
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	to_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (to_fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 		writer = write(to_fd, buffer, reader);
 		if (writer == -1 || reader != writer)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	} while (reader > 0);
