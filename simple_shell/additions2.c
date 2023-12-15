@@ -1,6 +1,47 @@
 #include "shell.h"
 
 /**
+ *_strtoken_r - string tokenization
+ *@str: str passed
+ *@delimit: dstring's delimiter
+ *@ptr: ptr for token tracking
+ *Return: next token
+ */
+char *_strtoken_r(char *str, char *delimit, char **ptr)
+{
+	char *c;
+
+	if (str == NULL)
+		str = *ptr;
+
+	if (*str == '\0')
+	{
+		*ptr = str;
+		return (NULL);
+	}
+
+	str += _strspn(str, delimit);
+
+	if (*str == '\0')
+	{
+		*ptr = str;
+		return (NULL);
+	}
+
+	c = str + _strcspn(str, delimit);
+
+	if (*c == '\0')
+	{
+		*ptr = c;
+		return (str);
+	}
+
+	*c = '\0';
+	*ptr = c + 1;
+	return (str);
+}
+
+/**
  * _atoi - changes str to int
  * @str: string to convert
  * Return: resulting int

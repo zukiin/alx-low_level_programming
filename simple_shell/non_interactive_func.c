@@ -17,10 +17,10 @@ void not_interactive(void)
 		{
 			rm_newline(line);
 			rm_comment(line);
-			cmds = tokenizer(line, ";");
+			cmds = tokenize(line, ";");
 			for (n = 0; cmds[n] != NULL; n++)
 			{
-				current_cmd = tokenizer(cmds[n], " ");
+				current_cmd = tokenize(cmds[n], " ");
 				if (current_cmd[0] == NULL)
 				{
 					free(current_cmd);

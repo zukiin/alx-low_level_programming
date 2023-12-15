@@ -27,13 +27,13 @@ int _strcomp(char *a, char *b)
  */
 char *_strconcat(char *source, char *target)
 {
-	int source_len = _strlen(source);
-	int target_len = _strlen(target);
+	int source_len = _strlength(source);
+	int target_len = _strlength(target);
 	char *new_str =  NULL;
 
 	new_str = malloc(sizeof(*new_str) * (source_len + target_len + 1));
-	_strcpy(target, new_str);
-	_strcpy(target, new_str + source_len);
+	_strcopy(target, new_str);
+	_strcopy(target, new_str + source_len);
 	new_str[source_len + target_len] = '\0';
 	return (new_str);
 }

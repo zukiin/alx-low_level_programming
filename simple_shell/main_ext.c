@@ -42,13 +42,13 @@ int parse_cmd(char *cmd)
 }
 
 /**
- * exe_cmd - executes a command based on it's type
+ * exec_cmd - executes a command based on it's type
  * @tokenized_cmd: e.h., {ls, -l, NULL}
  * @cmd_type: cmd type
  *
  * Return: void
  */
-void exe_cmd(char **tokenized_cmd, int cmd_type)
+void exec_cmd(char **tokenized_cmd, int cmd_type)
 {
 	void (*func)(char **cmd);
 
@@ -96,11 +96,11 @@ char *path_checker(char *cmd)
 	char *path = _get_env("PATH");
 	int i;
 
-	if (path == NULL || _strlen(path) == 0)
+	if (path == NULL || _strlength(path) == 0)
 		return (NULL);
-	cpy_path = malloc(sizeof(*cpy_path) * (_strlen(path) + 1));
-	_strcpy(path, cpy_path);
-	arr_of_path = tokenizer(cpy_path, ":");
+	cpy_path = malloc(sizeof(*cpy_path) * (_strlength(path) + 1));
+	_strcopy(path, cpy_path);
+	arr_of_path = tokenize(cpy_path, ":");
 	for (i = 0; arr_of_path[i] != NULL; i++)
 	{
 		t2 = _strconcat(arr_of_path[i], "/");
@@ -123,14 +123,13 @@ char *path_checker(char *cmd)
 /**
  * get_funct - gets funct based on string provided
  * @cmd: cmd string to verify from map
- *
  * Return: pointer to func, else fail
  */
 void (*get_funct(char *cmd))(char **)
 {
 	int i;
 	func_mapper mapping[] = {
-		{"env", env}, {"exit", quit}
+		{"env", env}, {"exit", exit_}
 	};
 
 	for (i = 0; i < 2; i++)
@@ -144,7 +143,6 @@ void (*get_funct(char *cmd))(char **)
 /**
  * _get_env - retrieves vals of env var
  * @var_name: env var name
- *
  * Return: val of var as str, else null
  */
 char *_get_env(char *var_name)

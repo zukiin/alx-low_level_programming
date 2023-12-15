@@ -4,7 +4,7 @@
 
 	char **cmds = NULL;
 	char *line = NULL;
-	char *shell_name = NULL;
+	char *name_of_shell = NULL;
 	int status = 0;
 
 /**
@@ -22,10 +22,11 @@ int main(int argc __attribute__((unused)), char **argv)
 	size_t n = 0;
 
 	signal(SIGINT, control_c_handler);
-	shell_name = argv[0];
+	name_of_shell = argv[0];
+
 	while (1)
 	{
-		non_interactive();
+		not_interactive();
 		print(" ($) ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
@@ -34,11 +35,11 @@ int main(int argc __attribute__((unused)), char **argv)
 		}
 			rm_newline(line);
 			rm_comment(line);
-			cmds = tokenizer(line, ";");
+			cmds = tokenize(line, ";");
 
 		for (i = 0; cmds[i] != NULL; i++)
 		{
-			current_cmd = tokenizer(cmds[i], " ");
+			current_cmd = tokenize(cmds[i], " ");
 			if (current_cmd[0] == NULL)
 			{
 				free(current_cmd);
@@ -46,7 +47,6 @@ int main(int argc __attribute__((unused)), char **argv)
 			}
 			cmd_type = parse_cmd(current_cmd[0]);
 
-			/* initializer -   */
 			initialize_(current_cmd, cmd_type);
 			free(current_cmd);
 		}

@@ -22,10 +22,10 @@
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 
 /**
- *struct mappings - struct for mapping cmd to a func 
+ *struct mappings - struct for mapping cmd to a func
  *
  *@cmd_name: command name
- *@func: func to execute the cmd 
+ *@func: func to execute the cmd
  */
 
 typedef struct mappings
@@ -40,12 +40,12 @@ extern char **cmds;
 extern char *name_of_shell;
 extern int status;
 
-/* helper */
-int _strlen(char *);
+/* helperfuncs */
+int _strlength(char *);
+void _strcopy(char *, char *);
 void print(char *, int);
-char **tokenizer(char *, char *);
+char **tokenize(char *, char *);
 void rm_newline(char *);
-void _strcpy(char *, char *);
 
 /* 2 */
 char *_strconcat(char *, char *);
@@ -70,13 +70,10 @@ char *_get_env(char *);
 
 /* built_in funcs*/
 void env(char **);
-void quit(char **);
+void exit_(char **);
 
 /* main funcs*/
-extern void non_interactive(void);
+extern void not_interactive(void);
 extern void initialize_(char **current_cmd, int cmd_type);
 
 #endif /*SHELL_H*/
-
-
-
