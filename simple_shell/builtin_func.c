@@ -6,14 +6,13 @@
  *
  *Return: void
  */
-
 void env(char **tokenized_cmd __attribute__((unused)))
 {
 	int i;
 
-	for (i = 0; _environ[i] != NULL; i++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
-		print(_environ[i], STDOUT_FILENO);
+		print(environ[i], STDOUT_FILENO);
 		print("\n", STDOUT_FILENO);
 	}
 }
@@ -24,7 +23,6 @@ void env(char **tokenized_cmd __attribute__((unused)))
  *
  * Return: void
  */
-
 void exit_(char **tokenized_cmd)
 {
 	int number_of_tokens = 0, arg;
@@ -34,26 +32,28 @@ void exit_(char **tokenized_cmd)
 	if (number_of_tokens == 1)
 	{
 		free(tokenized_cmd);
-		free(_line);
+		free(line);
 		free(cmds);
 		exit(status);
 	}
+
 	else if (number_of_tokens == 2)
 	{
 		arg = _atoi(tokenized_cmd[1]);
 		if (arg == -1)
 		{
-			print(shell_name, STDERR_FILENO);
+			print(name_of_shell, STDERR_FILENO);
 			print(": 1: exit: Illegal number: ", STDERR_FILENO);
 			print(tokenized_cmd[1], STDERR_FILENO);
 			print("\n", STDERR_FILENO);
 			status = 2;
 		}
+
 		else
 		{
-			free(_line);
+			free(line);
 			free(tokenized_cmd);
-			free(cmd);
+			free(cmds);
 			exit(arg);
 		}
 	}

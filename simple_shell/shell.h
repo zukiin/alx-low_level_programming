@@ -58,13 +58,13 @@ int _strcomp(char *, char *);
 char *_strtoken_r(char *, char *, char **);
 int _atoi(char *);
 void *_realloc(void *ptr, unsigned int size_old, unsigned int size_new);
-void ctrl_c_handler(int);
+void control_c_handler(int);
 void rm_comment(char *);
 
 /* utils */
 int parse_cmd(char *);
 void exec_cmd(char **, int);
-char *check_path(char *);
+char *path_checker(char *);
 void (*get_funct(char *))(char **);
 char *_get_env(char *);
 
@@ -74,7 +74,7 @@ void quit(char **);
 
 /* main funcs*/
 extern void non_interactive(void);
-extern void initialize_(char **current_cmd, int type_cmd);
+extern void initialize_(char **current_cmd, int cmd_type);
 
 #endif /*SHELL_H*/
 

@@ -27,7 +27,7 @@ int parse_cmd(char *cmd)
 	}
 	for (i = 0; int_cmd[i] != NULL; i++)
 	{
-		if (_strcmp(cmd, int_cmd[i]) == 0)
+		if (_strcomp(cmd, int_cmd[i]) == 0)
 			return (INT_CMD);
 	}
 	/* @path_checker - for checking if a cmd is found in path */
@@ -56,7 +56,7 @@ void exe_cmd(char **tokenized_cmd, int cmd_type)
 	{
 		if (execve(tokenized_cmd[0], tokenized_cmd, NULL) == -1)
 		{
-			perror(_getenv("PWD"));
+			perror(_get_env("PWD"));
 			exit(2);
 		}
 	}
@@ -64,13 +64,13 @@ void exe_cmd(char **tokenized_cmd, int cmd_type)
 	{
 		if (execve(path_checker(tokenized_cmd[0]), tokenized_cmd, NULL) == -1)
 		{
-			perror(_getenv("PWD"));
+			perror(_get_env("PWD"));
 			exit(2);
 		}
 	}
 	if (cmd_type == INT_CMD)
 	{
-		func = get_func(tokenized_cmd[0]);
+		func = get_funct(tokenized_cmd[0]);
 		func(tokenized_cmd);
 	}
 	if (cmd_type == INVALID_CMD)
@@ -93,7 +93,7 @@ char *path_checker(char *cmd)
 {
 	char **arr_of_path = NULL;
 	char *t, *t2, *cpy_path;
-	char *path = _getenv("PATH");
+	char *path = _get_env("PATH");
 	int i;
 
 	if (path == NULL || _strlen(path) == 0)
@@ -103,8 +103,8 @@ char *path_checker(char *cmd)
 	arr_of_path = tokenizer(cpy_path, ":");
 	for (i = 0; arr_of_path[i] != NULL; i++)
 	{
-		t2 = _strcat(arr_of_path[i], "/");
-		t = _strcat(t2, cmd);
+		t2 = _strconcat(arr_of_path[i], "/");
+		t = _strconcat(t2, cmd);
 		if (access(t, F_OK) == 0)
 		{
 			free(t2);
@@ -135,7 +135,7 @@ void (*get_funct(char *cmd))(char **)
 
 	for (i = 0; i < 2; i++)
 	{
-		if (_strcmp(cmd, mapping[i].cmd_name) == 0)
+		if (_strcomp(cmd, mapping[i].cmd_name) == 0)
 			return (mapping[i].func);
 	}
 	return (NULL);

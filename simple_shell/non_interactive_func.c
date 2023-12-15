@@ -2,38 +2,37 @@
 
 /**
  * not_interactive - for non-interactive
- *
  * Return: void
  */
 
 void not_interactive(void)
 {
 	char **current_cmd = NULL;
-	int i, type_cmd = 0;
+	int n, type_cmd = 0;
 	size_t s = 0;
 
 	if (!(isatty(STDIN_FILENO)))
 	{
-		while (getline(&_line, &s, stdin) != -1)
+		while (getline(&line, &s, stdin) != -1)
 		{
-			rm_newline(_line);
-			rm_comment(_line);
-			cmds = tokenizer(_line, ";");
-			for (i = 0; cmds[I] != NULL; i++)
+			rm_newline(line);
+			rm_comment(line);
+			cmds = tokenizer(line, ";");
+			for (n = 0; cmds[n] != NULL; n++)
 			{
-				current_cmd = tokenizer(cmds[I], " ");
+				current_cmd = tokenizer(cmds[n], " ");
 				if (current_cmd[0] == NULL)
 				{
 					free(current_cmd);
 					break;
 				}
 				type_cmd = parse_cmd(current_cmd[0]);
-				_init(current_cmd, type_cmd);
+				initialize_(current_cmd, type_cmd);
 				free(current_cmd);
 			}
 			free(cmds);
 		}
-		free(_line);
+		free(line);
 		exit(status);
 	}
 }

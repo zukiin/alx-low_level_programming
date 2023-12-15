@@ -44,10 +44,10 @@ int main(int argc __attribute__((unused)), char **argv)
 				free(current_cmd);
 				break;
 			}
-			cmd_type = parse_command(current_cmd[0]);
+			cmd_type = parse_cmd(current_cmd[0]);
 
 			/* initializer -   */
-			initializer(current_cmd, cmd_type);
+			initialize_(current_cmd, cmd_type);
 			free(current_cmd);
 		}
 		free(cmds);
